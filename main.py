@@ -102,7 +102,7 @@ class ErlangBTab(ttk.Frame):  # pylint: disable=too-many-ancestors
 
         ttk.Label(self, text="").grid(row=5, column=0)
 
-    def __check_btn(self):
+    def __check_btn(self) -> None:
         if self.option.get() == 1:
             self.erlang_entry.config(state="readonly")
             self.block_probality_entry.config(state="normal")
@@ -116,7 +116,7 @@ class ErlangBTab(ttk.Frame):  # pylint: disable=too-many-ancestors
             self.block_probality_entry.config(state="normal")
             self.channel_entry.config(state="readonly")
 
-    def __calculate(self):
+    def __calculate(self) -> None:
         try:
             prob = self.block_probality_var.get()
             channels = self.channel_var.get()
@@ -186,7 +186,7 @@ class ErlangCTab(ttk.Frame):  # pylint: disable=too-many-ancestors
         self.message_label = ttk.Label(self, text="", textvariable=self.message_var)
         self.message_label.grid(row=5, column=0, padx=3, columnspan=3)
 
-    def __calculate(self):
+    def __calculate(self) -> None:
         try:
             call_per_hour = self.call_per_hour_var.get()
             call_duration = self.call_duration_var.get()
