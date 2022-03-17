@@ -25,14 +25,14 @@ class ErlangC:
         load_a = lambda x, y: round(x * y / 3600, 4)
         a_load_value = load_a(self.call_per_hour, self.call_duration)
         agents = ceil(a_load_value)
-        _, service_level = self.calculate(agents, a_load_value)
+        _, service_level = self.__calculate(agents, a_load_value)
 
         while service_level < 0.8:
             agents += 1
-            _, service_level = self.calculate(agents, a_load_value)
+            _, service_level = self.__calculate(agents, a_load_value)
         return agents, round(service_level, 4)
 
-    def calculate(self, n_agents, a_load_value) -> list[float, float]:
+    def __calculate(self, n_agents, a_load_value) -> list[float, float]:
         """Docstring for calculate."""
         aux1 = 0
         aux2 = 1
